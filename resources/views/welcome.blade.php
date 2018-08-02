@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <!-- Material Design Bootstrap -->
     <link rel="stylesheet" href="{{asset('css/mdb.css')}}">
+    <link rel="stylesheet" type="text/css" href="../../js/vendor/datatables/css/dataTables.bootstrap4.min.css"/>
 
     <!-- Your custom styles (optional) -->
     <style>
@@ -297,7 +298,20 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+    <script type="text/javascript" src="../../js/vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../../js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#datatables').DataTable();
+        });
+
+        // Material Select Initialization
+        $(document).ready(function () {
+            $('select[name="datatables_length"]').material_select();
+        });
+    </script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
     <!-- Bootstrap core JavaScript -->
