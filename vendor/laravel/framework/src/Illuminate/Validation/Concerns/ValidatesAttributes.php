@@ -1126,13 +1126,9 @@ trait ValidatesAttributes
             return false;
         }
 
-        $phpExtensions = [
-            'php', 'php3', 'php4', 'php5', 'phtml',
-        ];
-
         return ($value instanceof UploadedFile)
-           ? in_array(trim(strtolower($value->getClientOriginalExtension())), $phpExtensions)
-           : in_array(trim(strtolower($value->getExtension())), $phpExtensions);
+           ? trim(strtolower($value->getClientOriginalExtension())) === 'php'
+           : trim(strtolower($value->getExtension())) === 'php';
     }
 
     /**

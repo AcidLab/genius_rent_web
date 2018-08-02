@@ -184,7 +184,13 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
      */
     public function is(...$patterns)
     {
-        return Str::is($patterns, $this->decodedPath());
+        foreach ($patterns as $pattern) {
+            if (Str::is($pattern, $this->decodedPath())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
@@ -301,20 +307,6 @@ class Request extends SymfonyRequest implements Arrayable, ArrayAccess
         $this->getInputSource()->replace($input);
 
         return $this;
-    }
-
-    /**
-     * This method belongs to Symfony HttpFoundation and is not usually needed when using Laravel.
-     *
-     * Instead, you may use the "input" method.
-     *
-     * @param  string  $key
-     * @param  mixed  $default
-     * @return mixed
-     */
-    public function get($key, $default = null)
-    {
-        return parent::get($key, $default);
     }
 
     /**

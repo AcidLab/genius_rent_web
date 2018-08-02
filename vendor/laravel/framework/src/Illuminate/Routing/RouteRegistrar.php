@@ -175,8 +175,6 @@ class RouteRegistrar
      * @param  string  $method
      * @param  array  $parameters
      * @return \Illuminate\Routing\Route|$this
-     *
-     * @throws \BadMethodCallException
      */
     public function __call($method, $parameters)
     {
