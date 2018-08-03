@@ -145,44 +145,36 @@
                         <div class="tab-pane fade" id="panel18" role="tabpanel">
 
                             <!--Body-->
-                            <form id="f">
-                                {{csrf_field()}}
                             <div class="modal-body">
                                 <div class="md-form form-sm">
                                     <i class="fa fa-envelope prefix"></i>
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-                                    <label for="email">Your email</label>
+                                    <input type="text" id="form14" class="form-control">
+                                    <label for="form14">Your email</label>
                                 </div>
 
                                 <div class="md-form form-sm">
                                     <i class="fa fa-lock prefix"></i>
-                                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-                                    <label for="password">Your password</label>
+                                    <input type="password" id="form5" class="form-control">
+                                    <label for="form5">Your password</label>
                                 </div>
 
                                 <div class="md-form form-sm">
                                     <i class="fa fa-lock prefix"></i>
-                                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                    <label for="password-confirm">Repeat password</label>
-                                </div>
-                                <div class="md-form form-sm">
-                                    <i class="fa fa-lock prefix"></i>
-                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-                                    <label for="name">name</label>
+                                    <input type="password" id="form6" class="form-control">
+                                    <label for="form6">Repeat password</label>
                                 </div>
 
                                 <div class="text-center form-sm mt-2">
-                                    <button type="submit" class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
+                                    <button class="btn btn-info">Sign up <i class="fa fa-sign-in ml-1"></i></button>
                                 </div>
 
                             </div>
-                        </form>
                             <!--Footer-->
                             <div class="modal-footer">
                                 <div class="options text-right">
                                     <p class="pt-1">Already have an account? <a href="#" class="blue-text">Log In</a></p>
                                 </div>
-                                <button type="submit" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-outline-info waves-effect ml-auto" data-dismiss="modal">Close</button>
                             </div>
                         </div>
                         <!--/.Panel 8-->
@@ -195,85 +187,5 @@
     </div>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="{{asset('js/popper.min.js')}}"></script>
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
-
     <!-- Bootstrap core JavaScript -->
-    <script>
-       /* var data;
-    function sendRequest()
-    {
-        $.ajax({
-            url : '{{route('register')}}',
-            type : 'post',
-            data : {
-                data:[$('#name'),$('#email'),$('#password')],
-                
-            },
-            success:function(result,status){
-                  alert('ok');  
-                }
-        });
-    }*/
-
-    /*-----------------------------------*/
-    // Variable to hold request
-var request;
-
-// Bind to the submit event of our form
-$("#f").submit(function(event){
-
-    // Prevent default posting of form - put here to work in case of errors
-    event.preventDefault();
-
-    // Abort any pending request
-    if (request) {
-        request.abort();
-    }
-    // setup some local variables
-    var $form = $(this);
-
-    // Let's select and cache all the fields
-    var $inputs = $form.find("input, select, button, textarea");
-
-    // Serialize the data in the form
-    var serializedData = $form.serialize();
-
-    // Let's disable the inputs for the duration of the Ajax request.
-    // Note: we disable elements AFTER the form data has been serialized.
-    // Disabled form elements will not be serialized.
-    $inputs.prop("disabled", true);
-
-    // Fire off the request to /form.php
-    request = $.ajax({
-        url: '{{route('register')}}',
-        type: "post",
-        data: serializedData
-    });
-
-    // Callback handler that will be called on success
-    request.done(function (response, textStatus, jqXHR){
-        // Log a message to the console
-        console.log("Hooray, it worked!");
-      
-    });
-
-    // Callback handler that will be called on failure
-    request.fail(function (jqXHR, textStatus, errorThrown){
-        // Log the error to the console
-        console.error(
-            "The following error occurred: "+
-            textStatus, errorThrown
-        );
-    });
-
-    // Callback handler that will be called regardless
-    // if the request failed or succeeded
-    request.always(function () {
-        // Reenable the inputs
-        $inputs.prop("disabled", false);
-    });
-
-});
-</script>
 @endsection
