@@ -298,10 +298,13 @@
 
     <!-- SCRIPTS -->
     <!-- JQuery -->
+
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
-    <script type="text/javascript" src="../../js/vendor/datatables/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="../../js/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
+
+    <script type="text/javascript" src="{{asset('js/vendor/datatables/js/jquery.dataTables.min.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/vendor/datatables/js/dataTables.bootstrap4.min.js')}}"></script>
     <script>
         $(document).ready(function() {
             $('#datatables').DataTable();
@@ -318,6 +321,8 @@
     <script type="text/javascript" src="{{asset('js/bootstrap.js')}}"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="{{asset('js/mdb.min.js')}}"></script>
+
+
     <!--Initializations-->
     <script>
         // SideNav Initialization
@@ -345,6 +350,8 @@
     </script>
 
     <!-- Charts -->
+
+
     <script>
         // Small chart
         $(function () {
@@ -357,7 +364,7 @@
         });
 
         //Main chart
-        var ctxL = document.getElementById("lineChart").getContext('2d');
+        /*var ctxL = document.getElementById("lineChart").getContext('2d');
         var myLineChart = new Chart(ctxL, {
             type: 'line',
             data: {
@@ -398,7 +405,7 @@
                     }],
                 }
             }
-        });
+        });*/
     </script>
 
 </body>
